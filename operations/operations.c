@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:33:20 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/13 17:52:13 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/13 19:09:40 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,20 @@ int	sa(t_node **stack_a)
 	tmp->next = (*stack_a)->next;
 	(*stack_a)->next = tmp;
 	return (1);
+}
+
+int	saa(t_stack *s)
+{
+	t_node *ex_top;
+	t_node *tmp2;
+	
+	if (!s->top || s->size < 2)
+		return (0);
+	ex_top = s->top;
+	tmp2 =(s->top)->next;
+	(s->top) = (s->top)->next;
+	(s->top)->prev = ex_top->prev;
+
 }
 
 int	sb(t_node **stack_b)
