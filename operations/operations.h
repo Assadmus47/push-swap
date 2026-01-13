@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 19:43:50 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/13 17:28:27 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/13 18:02:18 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ typedef struct s_node
 	int				value;
 	struct s_node	*next;
 }	t_node;
+
+typedef struct s_node
+{
+    int value;
+    struct s_node *next;
+    struct s_node *prev;
+} t_node;
+
+typedef struct s_stack
+{
+    t_node *top;
+    int size;
+} t_stack;
 
 t_node *new_node(int value);
 void	push(t_node **stack, int value);
