@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:00:36 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/14 18:44:47 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/15 22:00:37 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,24 +82,24 @@ int	ft_check_second_flag(char *first_flag, char *second_flag)
 	return (0);
 }
 
-int	ft_check_flag(int ac, char **av)
+int	ft_check_flag(int ac, char **av, int *falg_count)
 {
+	int	nb_flags;
+
+	flag_count = 0;
 	if (ac >= 2 && av[1][0] == '-' && av[1][1] == '-')
 	{
 		if (!ft_check_valid_flag(av[1]))
-		{
-			ft_putstr_fd("Error\n", 2);
 			return (0);
-		}
-	}
+		nb_flags++;
+	}	
 	if (ac >= 3  && av[2][0] == '-' && av[2][1] == '-')
 	{
 		if (!ft_check_second_flag(av[1], av[2]))
-		{
-			ft_putstr_fd("Error\n", 2);
 			return (0);
-		}
+		nb_flags++;
 	}
+	*flag_count = nb_flags;
 	return (1);
 }
 //test

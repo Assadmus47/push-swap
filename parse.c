@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 20:00:11 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/15 17:09:37 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/15 18:49:04 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,19 +186,21 @@ char	**ft_parse(int ac, char **av)
 	char	**values;
 	char	*elements;
 	char	*tmp;
-	int	i;
+	size_t	i;
 
 	if (ac < 2)
-		return (0);
-	i = 1;
-	elements = ft_strdup(av[i]);
-	while (i + 1 < ac)
+		return (NULL);
+	elements = ft_strdup(av[1]);
+	if (!elements)
+		return (NULL);
+	i = 2;
+	while (i < ac)
 	{
 		tmp = elements;
 		elements = ft_strjoin(tmp, " ");
 		free(tmp);
 		tmp = elements;
-		elements = ft_strjoin(tmp, av[i + 1]);
+		elements = ft_strjoin(tmp, av[i]);
 		free(tmp);
 		i++;
 	}
