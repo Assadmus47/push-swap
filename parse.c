@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 20:00:11 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/14 19:17:14 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/15 17:09:37 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@
 
 size_t  ft_strlen(const char *s)
 {
-        size_t  len;
+	size_t  len;
 
-        len = 0;
-        while (s[len])
-                len++;
-        return (len);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -60,6 +60,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i + j] = '\0';
 	return (str);
 }
+
 static size_t	ft_count(char const *s, char c, int nb)
 {
 	size_t	i;
@@ -157,6 +158,29 @@ char	**ft_split(char const *s, char c)
 	return (tab);
 }
 
+char	*ft_strdup(const char *src)
+{
+	char		*dst;
+	size_t		i;
+	size_t		len;
+
+	if (!src)
+		return (NULL);
+	len = 0;
+	while (src[len])
+		len++;
+	dst = malloc((len + 1) * sizeof(char));
+	if (!dst)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
 char	**ft_parse(int ac, char **av)
 {
 	char	**values;
@@ -164,27 +188,33 @@ char	**ft_parse(int ac, char **av)
 	char	*tmp;
 	int	i;
 
+	if (ac < 2)
+		return (0);
 	i = 1;
-	tmp = NULL;
-	while (i <= ac)
+	elements = ft_strdup(av[i]);
+	while (i + 1 < ac)
 	{
-		elements = ft_strjoin(tmp, av[i]);
+		tmp = elements;
+		elements = ft_strjoin(tmp, " ");
 		free(tmp);
 		tmp = elements;
+		elements = ft_strjoin(tmp, av[i + 1]);
+		free(tmp);
 		i++;
 	}
-	free(tmp);
 	values = ft_split(elements, ' ');
 	free(elements);
 	return (values);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int main(int ac, char **av)
 {
 	char **tab;
 
 	tab = ft_parse(ac, av);
+	if (!tab)
+		return (0);
 	int	i = 0;
 	while (tab[i])
 	{
@@ -198,4 +228,4 @@ int main(int ac, char **av)
 		i++;
 	}
 	free(tab);
-}
+}*/
