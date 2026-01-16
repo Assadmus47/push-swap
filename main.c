@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 18:24:33 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/16 20:16:18 by hhamidi          ###   ########.fr       */
+/*   Created: 2026/01/16 19:51:40 by hhamidi           #+#    #+#             */
+/*   Updated: 2026/01/16 20:16:24 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	error(int ac, char **av, int *numbers)
+int	push_swap(int ac, char **av)
 {
-	int	flag_count;
+	int	*numbers;
+	char	**values;
 
-	if (!ft_check_flag(ac, av, &flag_count))
-	{
-		ft_putstr_fd("Error\n", 2);
+	values = ft_parse(ac, av);
+	if (!values)
 		return (0);
-	}
-	*numbers = malloc(((ac - 1) - flag_count) * sizeof(int));
-	if (!numbers)
+	if (!error(ac, av, &numbers))
 		return (0);
-	if (!ft_check_values(values, flag_count, &numbers))
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (0);
-	}
-	return (1);
+	
+		
+	
 }

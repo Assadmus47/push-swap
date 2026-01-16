@@ -6,11 +6,12 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:17:19 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/15 22:03:54 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/16 20:10:51 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include <limits.h>
 
 long	ft_atol(const char *str)
 {
@@ -45,35 +46,67 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
-//je peux découper cette fonction (une fonction qui check les valeurs, les limits, les doublons)
-int	ft_check_values(char **values, int flag_count)
+
+int	ft_check_char(char *value)
+{
+	int	i;
+
+	i = 0;
+	while (value[i])
+	{
+		if (!ft_isdigit(value[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_check_limits(long number)
+{
+	if (value < INT_MIN || value_long > INT_MAX)
+		return (0);
+	return (1);
+}
+
+int	ft_check_duplicate(int	*numbers)
+{
+	size_t	i;
+	size_t	j;
+	size_t	size; 
+
+	i = 0;
+	size = sizeof(numbers) / sizeof(numbers[0]);
+	while (numbers[i] < (size - 1))
+	{
+		j = i + 1;
+		while (numbers[j] < size)
+		{
+			if (numbers[i] == numbers[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	ft_check_values(char **values, int start, int *numbers_array)
 {
 	size_t	i;
 	long	value_long;
-	int	value_int;
 
-	i = flag_count;
+	i = start;
 	while (values[i])
 	{
-		if (!ft_isdigit(values[i]))
-			return (1);
+		if (!ft_check_char(values[i]))
+			return (0);
 		value_long = ft_atol(values[i]);
-		if (value_long < -2147483648 && value_long > 2147483647)
-			return (1);
-		value_int = value_long;
+		if (!ft_check_limits(value_long))
+			return (0);
+		*numbers_array[i - start] = (int)value_long;
 		i++;
 	}
+	if (!ft_check_duplicate(numbers_array))
+		return (0);
+	return (1);
 }
-#include <stdio.h>
-int	main(void)
-{
-	printf("%d\n", ft_atoi("111111111"));
-	printf("%d\n", ft_atoi("-111111111"));
-	printf("%d\n", ft_atoi("+111111111"));
-	printf("%d\n", ft_atoi("--111111111"));
-	printf("%d\n", ft_atoi("++111111111"));
-
-	printf("%d\n", ft_atoi("test"));
-	return (0);
-}
-
