@@ -6,12 +6,12 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 16:12:58 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/15 21:54:14 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/16 18:57:33 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
-#include "../stack/stack.h"
+#include "../operations/operations.h"
+#include "stack.h"
 
 void init_stack(t_stack *s)
 {
@@ -56,6 +56,7 @@ int	push(t_stack *s, int value)
 		s->top = n;
 	}
 	(s->size)++;
+	return (1);
 }
 
 int	pop(t_stack *s)

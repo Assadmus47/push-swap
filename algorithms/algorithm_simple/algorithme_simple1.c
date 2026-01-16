@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 22:11:00 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/16 16:30:44 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/16 18:42:28 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ static int	mov_to_b(t_stack *a, t_stack *b, int min, int max)
     }
 }
 
-// Simple min/max extraction methods
 int algorithme_simple(t_stack *a, t_stack *b)
 {
     int min;

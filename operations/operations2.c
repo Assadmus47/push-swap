@@ -6,13 +6,13 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 18:39:03 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/14 19:02:32 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/16 18:54:41 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-int	changing_top(t_stack *a, t_stack *b)
+void	changing_top(t_stack *a, t_stack *b)
 {
 	t_node	*tmp;
 
