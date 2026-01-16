@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 16:07:09 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/16 16:12:17 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/16 16:37:35 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	cost(int index, int size)
 {
 	if (index <= size / 2)
-		return (index);
+		return (index - 1);
 	else
-		return (size - index);
+		return (size - index + 1);
 }
 
 int	valeur_min(t_stack *stack)

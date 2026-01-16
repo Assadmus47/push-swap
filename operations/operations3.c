@@ -6,12 +6,11 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 19:02:49 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/16 15:28:41 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/16 16:43:21 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
-#include "../stack/stack.h"
 
 void	ra(t_stack *a)
 {

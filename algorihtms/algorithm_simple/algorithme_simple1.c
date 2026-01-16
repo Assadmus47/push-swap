@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 22:11:00 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/16 16:14:20 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/16 16:30:44 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	use_rra(t_stack *a, t_stack *b, int value)
 {
 	while ((a->top)->value != value)
 	{
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
         if(rra(a) == 0)
 		    return (0);
 	}
@@ -54,20 +54,17 @@ static int	mov_to_b(t_stack *a, t_stack *b, int min, int max)
 	if (cost_min <= cost_max)
     {
 		if (pos_min <= (a->size / 2 + 1))
-			use_ra(a, b, min);
+			return (use_ra(a, b, min));
 		else
-			use_rra(a, b, min);
+			return (use_rra(a, b, min));
 	}
     else
 	{
     	if (pos_max <= (a->size / 2 + 1))
-			if (use_ra(a, b, max))
-				return (0);
+			return (use_ra(a, b, max));
 		else
-			if (use_rra(a, b, max) == 0)
-				return (0);
+			return (use_rra(a, b, max));
     }
-	return (1);
 }
 
 // Simple min/max extraction methods
@@ -80,7 +77,7 @@ int algorithme_simple(t_stack *a, t_stack *b)
     {
         min = valeur_min(a);
         max = valeur_max(a);
-        if (move_to_b(a, b, min, max) == 0)
+        if (mov_to_b(a, b, min, max) == 0)
 			return (0);
     }
     while (b->top != NULL)
