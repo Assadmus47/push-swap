@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 01:22:56 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/18 01:51:11 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/18 17:29:56 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,10 @@ void    index_stack(t_stack *a)
         return ;
     sort_array(arr, a->size);
     tmp = a->top;
-    while (tmp)
+    while (tmp->next != a->top)
     {
         tmp->value = get_index(arr, a->size, tmp->value);
         tmp = tmp->next;
-        if (tmp == a->top)
-            break ;
     }
     free(arr);
 }

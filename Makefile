@@ -6,7 +6,7 @@
 #    By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/16 19:03:56 by mkacemi           #+#    #+#              #
-#    Updated: 2026/01/18 16:39:03 by mkacemi          ###   ########.fr        #
+#    Updated: 2026/01/18 17:16:27 by mkacemi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(NAME) compilé avec succès !"
+	./$(NAME)
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -53,12 +54,9 @@ fclean: clean
 
 re: fclean all
 
-test: $(NAME)
-	./$(NAME)
-
 git:
 	git add .
 	git commit -m "$(msg)"
 	git push
 
-.PHONY: all clean fclean re test git
+.PHONY: all clean fclean re git

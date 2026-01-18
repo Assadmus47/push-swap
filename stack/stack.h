@@ -6,14 +6,12 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 21:27:24 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/18 16:43:49 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/18 16:53:52 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
-
-#include "../operations/operations.h"
 
 typedef struct s_node
 {

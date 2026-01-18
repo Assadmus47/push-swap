@@ -6,23 +6,27 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 16:39:20 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/18 16:43:24 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/18 17:27:42 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-int	is_sorted(t_stack *a)
+int is_sorted(t_stack *a)
 {
-	t_node	*tmp;
+	t_node *tmp;
+
+	if (!a || !a->top)
+		return (1);
+	if (a->top->next == a->top)
+		return (1);
 
 	tmp = a->top;
-	while (tmp->next)
+	while (tmp->next != a->top)
 	{
 		if (tmp->value > tmp->next->value)
 			return (0);
-		if (tmp == a->top)
-			break ;
+		tmp = tmp->next;
 	}
 	return (1);
 }

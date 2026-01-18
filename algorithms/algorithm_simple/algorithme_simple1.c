@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 22:11:00 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/17 17:37:23 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/18 17:28:10 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	algorithme_simple(t_stack *a, t_stack *b)
 {
 	int	min;
 
+	if (is_sorted(a))
+		return ;
 	while (a->top != NULL)
 		mov_to_b(a, b);
 	while (b->top != NULL)
