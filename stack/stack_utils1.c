@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   basic_stack_functions.c                            :+:      :+:    :+:   */
+/*   stack_utils1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 16:12:58 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/17 17:52:07 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/18 16:42:54 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../operations/operations.h"
 #include "stack.h"
 
 void	init_stack(t_stack *s)

@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 21:27:24 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/18 16:43:49 by mkacemi          ###   ########.fr       */
+/*   Created: 2026/01/18 16:39:20 by mkacemi           #+#    #+#             */
+/*   Updated: 2026/01/18 16:43:24 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#include "stack.h"
 
-#include "../operations/operations.h"
-
-typedef struct s_node
+int	is_sorted(t_stack *a)
 {
-	int					value;
-	struct s_node		*next;
-	struct s_node		*prev;
-}	t_node;
+	t_node	*tmp;
 
-typedef struct s_stack
-{
-	t_node	*top;
-	int		size;
-}	t_stack;
-
-t_node	*new_node(int value);
-void	init_stack(t_stack *s);
-int		push(t_stack *s, int value);
-int		pop(t_stack *s);
-int		peek(t_stack *s);
-int		is_sorted(t_stack *a);
-
-#endif
+	tmp = a->top;
+	while (tmp->next)
+	{
+		if (tmp->value > tmp->next->value)
+			return (0);
+		if (tmp == a->top)
+			break ;
+	}
+	return (1);
+}
