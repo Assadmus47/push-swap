@@ -1,32 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithme_medium1.c                               :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/18 01:22:56 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/18 01:30:49 by mkacemi          ###   ########.fr       */
+/*   Created: 2026/01/18 01:22:53 by mkacemi           #+#    #+#             */
+/*   Updated: 2026/01/18 01:22:55 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algorithme_medium.h"
-
-int *stack_to_array(t_stack *a)
-{
-    int     *arr;
-    t_node  *tmp;
-    int     i;
-
-    arr = malloc(sizeof(int) * a->size);
-    if (!arr)
-        return (NULL);
-    tmp = a->top;
-    i = 0;
-    while (i < a->size)
-    {
-        arr[i++] = tmp->value;
-        tmp = tmp->next;
-    }
-    return (NULL);
-}
