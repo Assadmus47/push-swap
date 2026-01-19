@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:46:59 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/19 20:19:27 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/19 20:56:47 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@ void	mov_to_b(t_stack *a, t_stack *b)
 	int		max_index;
 	int		chunk_size;
 	t_node	*tmp;
+	int		i;
 
 	tmp = a->top;
+	i= 0;
 	chunk_size = ft_sqrt(a->size);
 	current_chunk = 0;
 	max_index = chunk_size;
-	while (current_chunk < a->size)
+	while (a->top != NULL)
 	{
-		if (tmp->value < max_index)
+		while (i < a->size)
 		{
-			pb(a, b);
-			current_chunk++;
+			if (a->top->value < max_index)
+				pb(a, b);
+			ra(a);
+			i++;
 		}
-		if (current_chunk == max_index)
-			max_index += chunk_size;
-		tmp = tmp->next;
+		max_index += chunk_size;
 	}
 }
 
