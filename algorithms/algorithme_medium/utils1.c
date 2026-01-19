@@ -6,13 +6,13 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 01:22:56 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/18 17:49:21 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/19 18:21:08 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithme_medium.h"
 
-static int *stack_to_array(t_stack *a)
+int *stack_to_array(t_stack *a)
 {
     int     *arr;
     t_node  *tmp;
@@ -21,6 +21,7 @@ static int *stack_to_array(t_stack *a)
     arr = malloc(sizeof(int) * a->size);
     if (!arr)
         return (NULL);
+
     tmp = a->top;
     i = 0;
     while (i < a->size)
@@ -31,7 +32,7 @@ static int *stack_to_array(t_stack *a)
     return (arr);
 }
 
-static void    sort_array(int *arr, int size)
+void sort_array(int *arr, int size)
 {
     int i;
     int j;
@@ -55,7 +56,7 @@ static void    sort_array(int *arr, int size)
     }
 }
 
-static int get_index(int *arr, int size, int value)
+int get_index(int *arr, int size, int value)
 {
     int i;
 
@@ -66,10 +67,10 @@ static int get_index(int *arr, int size, int value)
             return (i);
         i++;
     }
-    return (-1);
+    return (-1); // sécurité
 }
 
-void    index_stack(t_stack *a)
+void index_stack(t_stack *a)
 {
     int     *arr;
     t_node  *tmp;
@@ -77,12 +78,17 @@ void    index_stack(t_stack *a)
     arr = stack_to_array(a);
     if (!arr)
         return ;
+
     sort_array(arr, a->size);
+
     tmp = a->top;
-    while (tmp->next != a->top)
+    while (tmp)
     {
         tmp->value = get_index(arr, a->size, tmp->value);
         tmp = tmp->next;
+        if (tmp == a->top) // SI TA LISTE EST CIRCULAIRE
+            break;
     }
+
     free(arr);
 }
