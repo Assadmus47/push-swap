@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 18:24:33 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/20 12:56:17 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/20 15:05:26 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	error(int ac, char **values, int **numbers)
 		return (0);
 	if (!check_values(values, flag_count, numbers, size_array))
 	{
+		free(*numbers);
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}

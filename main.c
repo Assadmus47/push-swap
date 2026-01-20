@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:51:40 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/19 20:40:36 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/20 15:17:09 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	push_swap(int ac, char **av)
 	if (!error(ac, values, &numbers))
 	{
 		free_buffers(values);
-		free(numbers);
 		return (0);
 	}
 	free_buffers(values); // for the test

@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:17:19 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/19 20:36:17 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/20 15:09:18 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ int	check_char(char *value)
 {
 	int	i;
 
-	if (!value[0])
-		return (0);
 	i = 0;
 	if (value[i] == '-' || value[i] == '+')
 		i++;
+	if (!value[i])
+		return (0);
 	while (value[i])
 	{
 		if (!ft_isdigit(value[i]))
