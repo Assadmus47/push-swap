@@ -1,20 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithme_medium.h                                :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/18 01:24:45 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/20 16:16:14 by mkacemi          ###   ########.fr       */
+/*   Created: 2026/01/18 01:22:53 by mkacemi           #+#    #+#             */
+/*   Updated: 2026/01/18 01:22:55 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALGORITHME_MEDIUM_H
-# define ALGORITHME_MEDIUM_H
-
-# include "../../stack/stack.h"
-# include "../../operations/operations.h"
-# include <stdlib.h>
-
-#endif
