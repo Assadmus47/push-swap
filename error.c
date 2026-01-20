@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 18:24:33 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/19 20:29:52 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/20 12:56:17 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	error(int ac, char **values, int **numbers)
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	size_array = count_elements(values);
-	*numbers = malloc((size_array - flag_count) * sizeof(int));
+	size_array = count_elements(values) - flag_count;
+	*numbers = malloc(size_array * sizeof(int));
 	if (!*numbers)
 		return (0);
 	if (!check_values(values, flag_count, numbers, size_array))
