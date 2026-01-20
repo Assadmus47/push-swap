@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   algorithme_complexe.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 21:27:24 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/20 18:27:30 by mkacemi          ###   ########.fr       */
+/*   Created: 2026/01/20 18:10:25 by mkacemi           #+#    #+#             */
+/*   Updated: 2026/01/20 19:44:36 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#ifndef ALGORITHME_COMPLEXE_H
+# define ALGORITHME_COMPLEXE_H
 
-typedef struct s_node
-{
-	int					value;
-	struct s_node		*next;
-	struct s_node		*prev;
-}	t_node;
+# include "../../stack/stack.h"
+# include "../../operations/operations.h"
+# include "../algorithme_medium/algorithme_medium.h"
+# include "../algorithm_simple/algorithme_simple.h"
 
-typedef struct s_stack
-{
-	t_node	*top;
-	int		size;
-}	t_stack;
-
-t_node	*new_node(int value);
-void	init_stack(t_stack *s);
-int		push(t_stack *s, int value);
-int		pop(t_stack *s);
-int		peek(t_stack *s);
-int		is_sorted(t_stack *a);
-
-# include <stdlib.h>
+int	algorithme_complexe(t_stack *a, t_stack *b);
 
 #endif

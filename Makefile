@@ -6,7 +6,7 @@
 #    By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/16 19:03:56 by mkacemi           #+#    #+#              #
-#    Updated: 2026/01/19 18:49:10 by mkacemi          ###   ########.fr        #
+#    Updated: 2026/01/20 19:55:59 by mkacemi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS = main.c \
        algorithms/algorithm_simple/utils.c \
        algorithms/algorithme_medium/algorithme_medium1.c \
        algorithms/algorithme_medium/utils1.c \
-       algorithms/algorithme_medium/utils2.c
+       algorithms/algorithme_medium/utils2.c \
+       algorithms/algorithme_complexe/algorithme_complexe.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -35,7 +36,8 @@ HEADERS = main.h \
           stack/stack.h \
           operations/operations.h \
           algorithms/algorithm_simple/algorithme_simple.h \
-          algorithms/algorithme_medium/algorithme_medium.h
+          algorithms/algorithme_medium/algorithme_medium.h \
+          algorithms/algorithme_complexe/algorithme_complexe.h
 
 all: $(NAME)
 
