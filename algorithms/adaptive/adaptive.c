@@ -6,31 +6,54 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 02:06:22 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/21 02:18:18 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/21 18:48:55 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "adaptive.h"
 
-double	count_dissorder(t_stack *a)
+static void	initialize(int *mistakes, int *total_pairs, t_node **i, t_stack *a)
 {
-	int	mistakes;
-	int	total_pairs;
-	int	i;
-	int	j;
+	*mistakes = 0;
+	*total_pairs = 0;
+	*i = a->top;
+}
 
-	i = 0;
-	mistakes = 0;
-	total_pairs = 0;
-	while (i < a->size)
+static double	count_disorder(t_stack *a)
+{
+	t_node	*i;
+	t_node	*j;
+	int		index[2];
+	int		mistakes;
+	int		total_pairs;
+
+	initialize(&mistakes, &total_pairs, &i, a);
+	index[0] = 0;
+	while (index[0] < a->size)
 	{
-		j = i + 1;
-		while (j < a->size)
+		j = i->next;
+		index[1] = index[0] + 1;
+		while (index[1] < a->size)
 		{
 			total_pairs++;
-			if (a->top->value > a->top->next->value)
+			if (i->value > j->value)
 				mistakes++;
+			j = j->next;
+			index[1]++;
 		}
+		i = i->next;
+		index[0]++;
 	}
-	return (mistakes / total_pairs);
+	return ((double)mistakes / (double)total_pairs);
+}
+
+int	adaptive(t_stack *a, t_stack *b)
+{
+	double disorder;
+
+	disorder = count_disorder(a);
+	if (disorder < 0.2)
+	{
+		if ()
+	}
 }
