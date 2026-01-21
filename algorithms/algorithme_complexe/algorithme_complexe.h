@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   algorithme_complexe.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 18:28:47 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/19 18:45:16 by mkacemi          ###   ########.fr       */
+/*   Created: 2026/01/20 18:10:25 by mkacemi           #+#    #+#             */
+/*   Updated: 2026/01/20 19:44:36 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef ALGORITHME_COMPLEXE_H
+# define ALGORITHME_COMPLEXE_H
 
-# include "algorithms/algorithm_simple/algorithme_simple.h"
-# include "algorithms/algorithme_medium/algorithme_medium.h"
-# include "operations/operations.h"
-# include "stack/stack.h"
-# include <stdio.h>
+# include "../../stack/stack.h"
+# include "../../operations/operations.h"
+# include "../algorithme_medium/algorithme_medium.h"
+# include "../algorithm_simple/algorithme_simple.h"
+
+int	algorithme_complexe(t_stack *a, t_stack *b);
 
 #endif

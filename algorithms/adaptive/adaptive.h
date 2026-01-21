@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations3.c                                      :+:      :+:    :+:   */
+/*   adaptive.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 19:02:49 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/21 19:54:07 by mkacemi          ###   ########.fr       */
+/*   Created: 2026/01/21 02:07:28 by mkacemi           #+#    #+#             */
+/*   Updated: 2026/01/21 18:58:01 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
+#ifndef ADAPTIVE_H
+# define ADAPTIVE_H
 
-void	ra(t_stack *a, t_flage *flage)
-{
-	write(1, "ra\n", 3);
-	(flage->ra)++;
-	if (a->size > 1)
-		a->top = a->top->next;
-}
+# include "../../stack/stack.h"
+# include "../../operations/operations.h"
+# include "../algorithm_simple/algorithme_simple.h"
+# include "../algorithme_medium/algorithme_medium.h"
+# include "../algorithme_complexe/algorithme_complexe.h"
 
-void	rb(t_stack *b, t_flage *flage)
-{
-	write(1, "rb\n", 3);
-	(flage->rb)++;
-	if (b->size > 1)
-		b->top = b->top->next;
-}
+int	adaptive(t_stack *a, t_stack *b);
 
-void	rr(t_stack *a, t_stack *b, t_flage *flage)
-{
-	write(1, "rr\n", 3);
-	(flage->rr)++;
-	ra(a, flage);
-	rb(b, flage);
-}
+#endif

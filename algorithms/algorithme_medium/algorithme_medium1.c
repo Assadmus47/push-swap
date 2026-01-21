@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/18 17:46:59 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/20 15:48:08 by mkacemi          ###   ########.fr       */
+/*   Created: 2026/01/21 23:57:37 by mkacemi           #+#    #+#             */
+/*   Updated: 2026/01/21 23:57:49 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	mov_to_b(t_stack *a, t_stack *b)
 			pb(b, a);
 			pushed++;
 			if (pushed == max_index)
-			max_index += chunk_size;
+				max_index += chunk_size;
 		}
 		else
 			ra(a);
@@ -41,7 +41,7 @@ static void	mov_to_a(t_stack *a, t_stack *b)
 
 	while (b->top != NULL)
 	{
-		max = valeur_max(b);
+		max = b->size - 1;
 		if (position(max, b) <= b->size / 2)
 			while ((b->top)->value != max)
 				rb(b);
@@ -52,7 +52,7 @@ static void	mov_to_a(t_stack *a, t_stack *b)
 	}
 }
 
-static void	real_stack(t_stack *a, int *arr)
+void	real_stack(t_stack *a, int *arr)
 {
 	t_node	*tmp;
 	int		i;
@@ -72,11 +72,9 @@ int	algorithme_medium(t_stack *a, t_stack *b)
 	int	*arr;
 
 	if (is_sorted(a))
-	return (0);
-	//sort_small_stack(a);
+		return (0);
 	arr = index_stack(a);
 	mov_to_b(a, b);
-	printf("salut\n");
 	mov_to_a(a, b);
 	real_stack(a, arr);
 	free(arr);

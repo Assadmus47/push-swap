@@ -6,12 +6,12 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 18:28:20 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/20 02:19:03 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/21 00:44:47 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
-#include "algorithms/algorithme_medium/algorithme_medium.h"
+#include "algorithms/algorithme_complexe/algorithme_complexe.h"
 // Simple min/max extraction methods
 
 void afficher_stack_debug(t_stack *stack)
@@ -55,7 +55,9 @@ int	main(void)
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
 	afficher_stack_debug(&b);
-	algorithme_medium(&a, &b);
+	algorithme_simple(&a, &b);
+	//algorithme_medium(&a, &b);
+	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
 	afficher_stack_debug(&b);
@@ -73,7 +75,9 @@ int	main(void)
 	push(&a, 8);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_medium(&a, &b);
+	algorithme_simple(&a, &b);
+	//algorithme_medium(&a, &b);
+	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
 	
@@ -89,7 +93,9 @@ int	main(void)
 	push(&a, 1);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_medium(&a, &b);
+	algorithme_simple(&a, &b);
+	//algorithme_medium(&a, &b);
+	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
 	
@@ -105,7 +111,9 @@ int	main(void)
 	push(&a, 5);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_medium(&a, &b);
+	algorithme_simple(&a, &b);
+	//algorithme_medium(&a, &b);
+	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
 	
@@ -119,7 +127,9 @@ int	main(void)
 	push(&a, 3);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_medium(&a, &b);
+	algorithme_simple(&a, &b);
+	//algorithme_medium(&a, &b);
+	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
 	
@@ -136,7 +146,9 @@ int	main(void)
 	push(&a, -10);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_medium(&a, &b);
+	algorithme_simple(&a, &b);
+	//algorithme_medium(&a, &b);
+	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
 	
@@ -158,7 +170,9 @@ int	main(void)
 	push(&a, 41);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_medium(&a, &b);
+	algorithme_simple(&a, &b);
+	//algorithme_medium(&a, &b);
+	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
 	

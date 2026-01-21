@@ -1,40 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithme_simple1.c                               :+:      :+:    :+:   */
+/*   algorithme_complexe.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 22:11:00 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/21 18:56:23 by mkacemi          ###   ########.fr       */
+/*   Created: 2026/01/20 18:07:58 by mkacemi           #+#    #+#             */
+/*   Updated: 2026/01/20 22:21:53 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algorithme_simple.h"
+#include "algorithme_complexe.h"
 
 static void	mov_to_b(t_stack *a, t_stack *b)
 {
-	int	min;
-	int	pos_min;
+	int	bit;
+	int	bit_max;
+	int	i;
+	int	size;
 
-	min = valeur_min(a);
-	pos_min = position(min, a);
-	if (pos_min <= a->size / 2)
-		while ((a->top)->value != min)
-			ra(a);
-	else
-		while ((a->top)->value != min)
-			rra(a);
-	pb(b, a);
+	bit = 0;
+	bit_max = 0;
+	while (((a->size - 1) >> bit_max) != 0)
+		bit_max++;
+	while (bit < bit_max)
+	{
+		i = 0;
+		size = a->size;
+		while (i < size)
+		{
+			if (((a->top->value >> bit) & 1) == 0)
+				pb(b, a);
+			else
+				ra(a);
+			i++;
+		}
+		while (b->size > 0)
+			pa(a, b);
+		bit++;
+	}
 }
 
-int	algorithme_simple(t_stack *a, t_stack *b)
+int	algorithme_complexe(t_stack *a, t_stack *b)
 {
+	int		*arr;
+
 	if (is_sorted(a))
 		return (0);
-	while (a->top != NULL)
-		mov_to_b(a, b);
-	while (b->top != NULL)
-		pa(a, b);
+	arr = index_stack(a);
+	mov_to_b(a, b);
+	real_stack(a, arr);
+	free(arr);
 	return (1);
 }
