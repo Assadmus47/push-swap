@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 02:07:28 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/21 18:49:30 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/21 18:58:01 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include "../../stack/stack.h"
 # include "../../operations/operations.h"
-# include 
+# include "../algorithm_simple/algorithme_simple.h"
+# include "../algorithme_medium/algorithme_medium.h"
 # include "../algorithme_complexe/algorithme_complexe.h"
 
-double	count_dissorder(t_stack *a);
+int	adaptive(t_stack *a, t_stack *b);
 
 #endif

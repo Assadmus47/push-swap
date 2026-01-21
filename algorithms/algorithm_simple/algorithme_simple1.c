@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 22:11:00 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/21 00:48:59 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/21 18:56:23 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ static void	mov_to_b(t_stack *a, t_stack *b)
 	pb(b, a);
 }
 
-void	algorithme_simple(t_stack *a, t_stack *b)
+int	algorithme_simple(t_stack *a, t_stack *b)
 {
 	if (is_sorted(a))
-		return ;
+		return (0);
 	while (a->top != NULL)
 		mov_to_b(a, b);
 	while (b->top != NULL)
 		pa(a, b);
+	return (1);
 }
