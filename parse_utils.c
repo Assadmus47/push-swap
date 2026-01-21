@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 17:17:19 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/20 15:09:18 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/21 20:34:15 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	check_duplicate(int	*numbers, int size_array)
 	return (1);
 }
 
-int	check_values(char **values, int start, int **numbers_array, int size_array)
+int	check_values(char **values, int start, t_data *data)
 {
 	size_t	i;
 	long	value_long;
@@ -117,10 +117,10 @@ int	check_values(char **values, int start, int **numbers_array, int size_array)
 		value_long = ft_atol(values[i]);
 		if (!check_limits(value_long))
 			return (0);
-		(*numbers_array)[i - start] = (int)value_long;
+		data->numbers[i - start] = (int)value_long;
 		i++;
 	}
-	if (!check_duplicate(*numbers_array, size_array))
+	if (!check_duplicate(data->numbers, data->size))
 		return (0);
 	return (1);
 }

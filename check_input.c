@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:00:36 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/19 19:40:49 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/21 20:34:12 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,45 +58,54 @@ int	check_valid_flag(char *flag)
 	return (0);
 }
 
-int	check_duplicate_flag(char *first_flag, char *second_flag)
-{
-	if (!ft_strcmp(first_flag, second_flag))
-		return (0);
-	return (1);
-}
+//int	check_duplicate_flag(char *first_flag, char *second_flag)
+//{
+//	if (!ft_strcmp(first_flag, second_flag))
+//		return (0);
+//	return (1);
+//}
 
-int	check_second_flag(char *first_flag, char *second_flag)
+int	check_second_flag(int first_flag_type, char *second_flag, int bench_mode)
 {
-	int	first_flag_nb;
-	int	second_flag_nb;
+	int	second_flag_type;
 
-	if (!check_duplicate_flag(first_flag, second_flag))
+//	if (!check_duplicate_flag(first_flag, second_flag))
+//		return (0);
+	second_flag_type = check_valid_flag(second_flag);
+	if (!second_flag_type || second_flag_type == first_flag_type) // valid flag and duplicate flag check
 		return (0);
-	first_flag_nb = check_valid_flag(first_flag);
-	second_flag_nb = check_valid_flag(second_flag);
-	if (!second_flag_nb)
-		return (0);
-	if (first_flag_nb >= 1 && first_flag_nb <= 4 && second_flag_nb == 5)
+	if (first_flag_type >= 1 && first_flag_type <= 4 && second_flag_type == 5)
+	{
+		data->bench_mode = 1;
 		return (1);
-	if (second_flag_nb >= 1 && second_flag_nb <= 4 && first_flag_nb == 5)
+	}
+	if (second_flag_type >= 1 && second_flag_type <= 4 && first_flag_type == 5)
+	{
+		data->flag = second_flag_type;
 		return (1);
+	}
 	return (0);
 }
 
-int	check_flag(int ac, char **values, int *flag_count)
+int	check_flag(char **values, int *flag_count, t_data *data)
 {
 	int	nb_flags;
+	int	first_flag_type;
 
 	nb_flags = 0;
-	if (ac >= 2 && values[0][0] == '-' && values[0][1] == '-')
+	if (values[0][0] == '-' && values[0][1] == '-')
 	{
-		if (!check_valid_flag(values[0]))
+		first_flag_type = check_valid_flag(values[0]);
+		if (!first_flag_type)
 			return (0);
+		if (first_flag_type == 5)
+			data->bench_mode = 1;
+		data->flag = first_flag_type;
 		nb_flags++;
 	}	
-	if (ac >= 3  && values[1][0] == '-' && values[1][1] == '-')
+	if (values[1][0] == '-' && values[1][1] == '-')
 	{
-		if (!check_second_flag(values[0], values[1]))
+		if (!check_second_flag(first_flag_type, values[1], data->bench_mode)
 			return (0);
 		nb_flags++;
 	}

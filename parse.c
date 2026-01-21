@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 20:00:11 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/19 20:33:02 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/21 20:34:14 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,43 +173,25 @@ char	*ft_strdup(const char *src)
 	dst[i] = '\0';
 	return (dst);
 }
-static int check_valid_args(int ac, char **av)
-{
-	int	i;
-
-	i = 1;
-	while (i < ac)
-	{
-		if (!av[i] || !av[i][0])
-		{
-			ft_putstr_fd("Error\n", 2);
-			return (0);
-		}
-		i++;
-	}
-	return (1);
-}
 char	**parse(int ac, char **av)
 {
 	char	**values;
 	char	*elements;
-	char	*tmp;
+	char	*old_elements;
 	int	i;
 
-	if (ac < 2 || !check_valid_args(ac, av))
-		return (NULL);
 	elements = ft_strdup(av[1]);
 	if (!elements)
 		return (NULL);
 	i = 2;
 	while (i < ac)
 	{
-		tmp = elements;
-		elements = ft_strjoin(tmp, " ");
-		free(tmp);
-		tmp = elements;
-		elements = ft_strjoin(tmp, av[i]);
-		free(tmp);
+		old_elements = elements;
+		elements = ft_strjoin(old_elements, " ");
+		free(old_elements);
+		old_elements = elements;
+		elements = ft_strjoin(old_elements, av[i]);
+		free(old_elements);
 		i++;
 	}
 	values = ft_split(elements, ' ');

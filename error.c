@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 18:24:33 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/20 15:05:26 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/21 20:34:13 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ static int count_elements(char **tab)
 	return (count);
 }
 
-int	error(int ac, char **values, int **numbers)
+int	error(int ac, char **values, t_data *data)
 {
 	int	flag_count;
-	int	size_array;
 
 	flag_count = 0;
 	if (!check_flag(ac, values, &flag_count))
@@ -34,13 +33,13 @@ int	error(int ac, char **values, int **numbers)
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	size_array = count_elements(values) - flag_count;
-	*numbers = malloc(size_array * sizeof(int));
-	if (!*numbers)
+	data->size = count_elements(values) - flag_count;
+	data->numbers = malloc(data->size * sizeof(int));
+	if (!data->numbers)
 		return (0);
-	if (!check_values(values, flag_count, numbers, size_array))
+	if (!check_values(values, flag_count, data))
 	{
-		free(*numbers);
+		free(data->numbers);
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
