@@ -3,42 +3,67 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/11/28 11:50:11 by hhamidi           #+#    #+#              #
-#    Updated: 2025/12/10 13:35:59 by hhamidi          ###   ########.fr        #
+#    Created: 2026/01/16 19:03:56 by mkacemi           #+#    #+#              #
+#    Updated: 2026/01/22 01:57:37 by mkacemi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = push_swap
+
 CC = cc
+
 CFLAGS = -Wall -Wextra -Werror
-CPPFLAGS = -MMD -MP
-AR = ar
-ARFLAGS = rcs
-SRCS = ft_printf.c \
-	   puts_functions.c \
-	   utils.c
+
+SRCS = main/main.c \
+	   main/display_utils.c \
+       stack/stack_utils1.c \
+       stack/stack_utils2.c \
+       operations/operations1.c \
+       operations/operations2.c \
+       operations/operations3.c \
+       operations/operations4.c \
+       algorithms/algorithm_simple/algorithme_simple1.c \
+       algorithms/adaptive/adaptive.c \
+       algorithms/algorithm_simple/utils.c \
+       algorithms/algorithme_medium/algorithme_medium1.c \
+       algorithms/algorithme_medium/utils1.c \
+       algorithms/algorithme_medium/utils2.c \
+       algorithms/algorithme_complexe/algorithme_complexe.c
+
 OBJS = $(SRCS:.c=.o)
-DEPS = $(OBJS:.o=.d)
-RM = rm -f
+
+HEADERS = main/main.h \
+          stack/stack.h \
+          operations/operations.h \
+          algorithms/algorithm_simple/algorithme_simple.h \
+          algorithms/algorithme_medium/algorithme_medium.h \
+          algorithms/algorithme_complexe/algorithme_complexe.h
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $@ $^
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@echo "$(NAME) compilé avec succès !"
+	./$(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	rm -f $(OBJS)
+	@echo "Fichiers objets supprimés"
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME)
+	@echo "$(NAME) supprimé"
 
 re: fclean all
 
--include $(DEPS)
+git:
+	git add .
+	git commit -m "$(msg)"
+	git push
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re git
