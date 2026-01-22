@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 02:06:22 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/22 02:32:33 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/22 02:55:52 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	copy_strategy(t_flage *flage, char *strategy)
 	int	i;
 
 	i = 0;
-	while (i < 19 && strategy[i] != '\0')
+	while (i < 20 && strategy[i] != '\0')
 	{
 		flage->strategy[i] = strategy[i];
 		i++;
@@ -70,19 +70,19 @@ int	adaptive(t_stack *a, t_stack *b, t_flage *flage)
 	{
 		if (algorithme_simple(a, b, flage) == 0)
 			return (0);
-		copy_strategy(flage, "simple / O(n^2)");
+		copy_strategy(flage, "Simple / O(n^2)");
 	}
 	else if (disorder < 0.5)
 	{
 		if (algorithme_medium(a, b, flage) == 0)
 			return (0);
-		copy_strategy(flage, "medium / O(n √ n)");
+		copy_strategy(flage, "Medium / O(n √ n)");
 	}
 	else if (disorder >= 0.5)
 	{
 		if (algorithme_complexe(a, b, flage) == 0)
 			return (0);
-		copy_strategy(flage, "complex / O(n log n)");
+		copy_strategy(flage, "Complex / O(n log n)");
 	}
 	return (1);
 }
