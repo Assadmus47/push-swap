@@ -6,7 +6,7 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 18:24:33 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/21 20:34:13 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/22 13:01:52 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	error(int ac, char **values, t_data *data)
 	int	flag_count;
 
 	flag_count = 0;
-	if (!check_flag(ac, values, &flag_count))
+	if (!check_flag(ac, values, &flag_count, data))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
