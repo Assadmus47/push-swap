@@ -6,12 +6,12 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 18:28:20 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/21 00:44:47 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/22 02:51:41 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
-#include "algorithms/algorithme_complexe/algorithme_complexe.h"
+#include "../algorithms/algorithme_complexe/algorithme_complexe.h"
 // Simple min/max extraction methods
 
 void afficher_stack_debug(t_stack *stack)
@@ -42,12 +42,13 @@ int	main(void)
 {
 	t_stack a;
 	t_stack b;
-	
+	t_flage	flage;
 	printf("========================================\n");
 	printf("TEST 1 : Stack simple (4 éléments)\n");
 	printf("========================================\n");
 	init_stack(&a);
 	init_stack(&b);
+	init_flage(&flage);
 	push(&a, 1);
 	push(&a, 5);
 	push(&a, 2);
@@ -55,18 +56,21 @@ int	main(void)
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
 	afficher_stack_debug(&b);
-	algorithme_simple(&a, &b);
+	adaptive(&a, &b, &flage);
+	//algorithme_simple(&a, &b, &flage);
 	//algorithme_medium(&a, &b);
 	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
 	afficher_stack_debug(&b);
-	
+	display_bench(&flage);
+
 	printf("\n\n========================================\n");
 	printf("TEST 2 : Stack désordonnée (6 éléments)\n");
 	printf("========================================\n");
 	init_stack(&a);
 	init_stack(&b);
+	init_flage(&flage);
 	push(&a, 42);
 	push(&a, 7);
 	push(&a, 99);
@@ -75,17 +79,20 @@ int	main(void)
 	push(&a, 8);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_simple(&a, &b);
+	adaptive(&a, &b, &flage);
+	//algorithme_simple(&a, &b, &flage);
 	//algorithme_medium(&a, &b);
 	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
+	display_bench(&flage);
 	
 	printf("\n\n========================================\n");
 	printf("TEST 3 : Stack déjà triée (5 éléments)\n");
 	printf("========================================\n");
 	init_stack(&a);
 	init_stack(&b);
+	init_flage(&flage);
 	push(&a, 5);
 	push(&a, 4);
 	push(&a, 3);
@@ -93,17 +100,20 @@ int	main(void)
 	push(&a, 1);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_simple(&a, &b);
+	adaptive(&a, &b, &flage);
+	//algorithme_simple(&a, &b, &flage);
 	//algorithme_medium(&a, &b);
 	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
+	display_bench(&flage);
 	
 	printf("\n\n========================================\n");
 	printf("TEST 4 : Stack triée inversée (5 éléments)\n");
 	printf("========================================\n");
 	init_stack(&a);
 	init_stack(&b);
+	init_flage(&flage);
 	push(&a, 1);
 	push(&a, 2);
 	push(&a, 3);
@@ -111,33 +121,39 @@ int	main(void)
 	push(&a, 5);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_simple(&a, &b);
+	adaptive(&a, &b, &flage);
+	//algorithme_simple(&a, &b, &flage);
 	//algorithme_medium(&a, &b);
 	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
+	display_bench(&flage);
 	
 	printf("\n\n========================================\n");
 	printf("TEST 5 : Petite stack (3 éléments)\n");
 	printf("========================================\n");
 	init_stack(&a);
 	init_stack(&b);
+	init_flage(&flage);
 	push(&a, 2);
 	push(&a, 1);
 	push(&a, 3);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_simple(&a, &b);
+	adaptive(&a, &b, &flage);
+	//algorithme_simple(&a, &b, &flage);
 	//algorithme_medium(&a, &b);
 	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
+	display_bench(&flage);
 	
 	printf("\n\n========================================\n");
 	printf("TEST 6 : Stack avec valeurs négatives\n");
 	printf("========================================\n");
 	init_stack(&a);
 	init_stack(&b);
+	init_flage(&flage);
 	push(&a, -5);
 	push(&a, 10);
 	push(&a, -2);
@@ -146,11 +162,13 @@ int	main(void)
 	push(&a, -10);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_simple(&a, &b);
+	adaptive(&a, &b, &flage);
+	//algorithme_simple(&a, &b, &flage);
 	//algorithme_medium(&a, &b);
 	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
+	display_bench(&flage);
 	
 	printf("\n\n========================================\n");
 	printf("TEST 7 : Grande stack (10 éléments)\n");
@@ -158,6 +176,7 @@ int	main(void)
 
 	init_stack(&a);
 	init_stack(&b);
+	init_flage(&flage);
 	push(&a, 50);
 	push(&a, 23);
 	push(&a, 89);
@@ -170,11 +189,13 @@ int	main(void)
 	push(&a, 41);
 	printf("\n📊 AVANT ALGO :\n");
 	afficher_stack_debug(&a);
-	algorithme_simple(&a, &b);
+	adaptive(&a, &b, &flage);
+	//algorithme_simple(&a, &b, &flage);
 	//algorithme_medium(&a, &b);
 	//algorithme_complexe(&a, &b);
 	printf("\n✅ APRES ALGO :\n");
 	afficher_stack_debug(&a);
+	display_bench(&flage);
 	
 	return (0);
 }
