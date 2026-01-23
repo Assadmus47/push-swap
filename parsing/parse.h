@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 17:26:41 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/23 15:37:44 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/23 16:32:59 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	**join_and_split_args(int ac, char **av);
 int		validate_input(char **values, t_data *data);
 int		parse_flags(int value_count, char **values, int *flag_count, t_data *data);
 int		parse_values(char **values, int start, t_data *data);
+int		empty_stack(t_stack *stack);
 
 #endif

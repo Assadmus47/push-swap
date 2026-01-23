@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:51:40 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/23 14:49:07 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/23 16:33:34 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	fill_stack(t_stack *stack, int *numbers, int size)
 	return (1);
 }
 
-static int	empty_stack(t_stack *stack)
+int	empty_stack(t_stack *stack)
 {
 	while (stack->size > 0)
 		pop(stack);
