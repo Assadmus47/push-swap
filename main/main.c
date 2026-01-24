@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 18:52:41 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/23 17:09:42 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/23 23:29:38 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ static void sort_strategy(t_stack *stack, int flag, t_flage *flage)
 
 	disorder = 0.0;
 	if (flag == 1)
-		ft_strcpy(flage->strategy, "simple");
+		ft_strcpy(flage->strategy, "Simple / O(n^2)");
 	else if (flag == 2)
-		ft_strcpy(flage->strategy, "medium");
+		ft_strcpy(flage->strategy, "Medium / O(n √ n)");
 	else if (flag == 3)
-		ft_strcpy(flage->strategy, "complex");
+		ft_strcpy(flage->strategy, "Complex / O(n log n)");
 	else if (flag == 4)
 		ft_strcpy(flage->strategy, "adaptive");
 	disorder = count_disorder(stack);
