@@ -6,17 +6,11 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 01:22:53 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/22 00:47:51 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/24 23:59:48 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithme_medium.h"
-
-void	sort_small_stack(t_stack *a, t_flage *flage)
-{
-	if (a->size == 2)
-		sa(a, flage);
-}
 
 int	ft_sqrt(int nb)
 {

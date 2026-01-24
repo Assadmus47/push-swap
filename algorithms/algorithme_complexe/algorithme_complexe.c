@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:07:58 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/22 00:09:23 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/25 00:30:37 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ int	algorithme_complexe(t_stack *a, t_stack *b, t_flage *flage)
 
 	if (is_sorted(a))
 		return (0);
+	if (a->size == 2)
+	{
+		sa(a, flage);
+		return (1);
+	}
 	arr = index_stack(a);
 	mov_to_b(a, b, flage);
 	real_stack(a, arr);

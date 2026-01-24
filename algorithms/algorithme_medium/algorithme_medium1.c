@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:46:59 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/22 02:58:55 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/24 23:59:42 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,11 @@ int	algorithme_medium(t_stack *a, t_stack *b, t_flage *flage)
 
 	if (is_sorted(a))
 		return (0);
+	if (a->size == 2)
+	{
+		sa(a, flage);
+		return (1);
+	}
 	arr = index_stack(a);
 	mov_to_b(a, b, flage);
 	mov_to_a(a, b, flage);

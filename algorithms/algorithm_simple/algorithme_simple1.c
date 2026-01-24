@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 22:11:00 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/22 00:05:22 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/25 00:30:21 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ int	algorithme_simple(t_stack *a, t_stack *b, t_flage *flage)
 {
 	if (is_sorted(a))
 		return (0);
+	if (a->size == 2)
+	{
+		sa(a, flage);
+		return (1);
+	}
 	while (a->top != NULL)
 		mov_to_b(a, b, flage);
 	while (b->top != NULL)
