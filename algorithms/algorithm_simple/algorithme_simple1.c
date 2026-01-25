@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 22:11:00 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/25 16:48:24 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/25 18:02:17 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void	mov_to_b(t_stack *a, t_stack *b, t_flage *flage)
 
 int	algorithme_simple(t_stack *a, t_stack *b, t_flage *flage)
 {
+	if (is_sorted(a))
+		return (0);
 	if (a->size == 2)
 	{
 		sa(a, flage);
