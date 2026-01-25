@@ -6,14 +6,14 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 18:28:20 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/25 00:42:46 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/25 16:30:50 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 #include "../algorithms/algorithme_complexe/algorithme_complexe.h"
 
-/* 
+
 void afficher_stack_debug(t_stack *stack)
 {
 	int		i;
@@ -36,7 +36,7 @@ void afficher_stack_debug(t_stack *stack)
 	}
 	printf("========================\n");
 }
-
+/* 
 int	main(void)
 {
 	t_stack a;
