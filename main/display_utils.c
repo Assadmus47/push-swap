@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 00:53:29 by mkacemi           #+#    #+#             */
-/*   Updated: 2026/01/25 00:41:58 by mkacemi          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:37:28 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	display_r(t_flage *flage)
 void	display_bench(t_flage *flage)
 {
 	ft_putstr("[bench] disorder:  ", 2);
-	ft_putfloat(flage->disorder, 2, 2);
+	ft_putfloat((flage->disorder) * 100, 2, 2);
 	write(2, "%\n", 2);
 	ft_putstr("[bench] strategy:  ", 2);
 	ft_putstr(flage->strategy, 2);
