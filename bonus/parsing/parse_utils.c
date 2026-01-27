@@ -6,9 +6,11 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:12:43 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/26 20:33:14 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/27 21:46:49 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "parse.h"
 
 char	**join_and_split_args(int ac, char **av)
 {
@@ -36,7 +38,7 @@ char	**join_and_split_args(int ac, char **av)
 	return (values);
 }
 
-int	count_elements(char **tab)
+static int	count_elements(char **tab)
 {
 	int	count;
 
@@ -46,17 +48,15 @@ int	count_elements(char **tab)
 	return (count);
 }
 
-int	validate_input(char **values, int *numbers)
+int	validate_input(char **values, int **numbers, int *numbers_size)
 {
-	int	value_count;
-
-	value_count = count_elements(values);
-	numbers = malloc(value_count * sizeof(int));
+	(*numbers_size) = count_elements(values);
+	*numbers = malloc((*numbers_size) * sizeof(int));
 	if (!numbers)
 		return (0);
-	if (!parse_values(values, numbers, value_count))
+	if (!parse_values(values, numbers, *numbers_size))
 	{
-		free(numbers);
+		free(*numbers);
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}

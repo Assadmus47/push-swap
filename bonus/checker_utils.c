@@ -6,11 +6,13 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:40:02 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/26 20:28:31 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/27 21:11:24 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int swap(char operation, t_stack *a, t_stack *b)
+#include "checker.h"
+
+int	checker_swap(char *operation, t_stack *a, t_stack *b)
 {
 	if (!ft_strcmp(operation, "sa"))
 	{
@@ -30,10 +32,10 @@ int swap(char operation, t_stack *a, t_stack *b)
 			return (0);
 		return (1);
 	}
-	return 0; (0);
+	return (0);
 }
 
-int push(char operation, t_stack *a, t_stack *b)
+int	checker_push(char *operation, t_stack *a, t_stack *b)
 {
 	if (!ft_strcmp(operation, "pa"))
 	{
@@ -43,17 +45,51 @@ int push(char operation, t_stack *a, t_stack *b)
 	}
 	if (!ft_strcmp(operation, "pb"))
 	{
-		if (!pd(b, a))
+		if (!pb(b, a))
 			return (0);
 		return (1);
 	}
 	return (0);
 }
-int rotate(char operation, t_stack *a, t_stack *b)
-{
 
+void	checker_rotate(char *operation, t_stack *a, t_stack *b)
+{
+	if (!ft_strcmp(operation, "ra"))
+		ra(a);
+	if (!ft_strcmp(operation, "rb"))
+		rb(b);
+	if (!ft_strcmp(operation, "rr"))
+		rr(a, b);
 }
-int reverse_rotate(char operation, t_stack *a, t_stack *b)
-{
 
+void	checker_reverse_rotate(char *operation, t_stack *a, t_stack *b)
+{
+	if (!ft_strcmp(operation, "rra"))
+		rra(a);
+	if (!ft_strcmp(operation, "rrb"))
+		rrb(b);
+	if (!ft_strcmp(operation, "rrr"))
+		rrr(a, b);
+}
+#include <stdio.h>
+int	apply_operations(char **operations, t_stack *a, t_stack *b)
+{
+	int	i;
+
+	i = 0;
+	while (operations[i])
+	{
+		if (operations[i][0] == 's')
+			if (!checker_swap(operations[i], a, b))
+				return (0);
+		if (operations[i][0] == 'p')
+			if (!checker_push(operations[i], a, b))
+				return (0);
+		if (operations[i][0] == 'r' && ft_strlen(operations[i]) == 2)
+			checker_rotate(operations[i], a, b);
+		if (operations[i][0] == 'r' && ft_strlen(operations[i]) == 3)
+			checker_reverse_rotate(operations[i], a, b);
+		i++;
+	}
+	return (1);
 }

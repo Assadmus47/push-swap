@@ -6,11 +6,13 @@
 /*   By: hhamidi <hhamidi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:44:50 by hhamidi           #+#    #+#             */
-/*   Updated: 2026/01/26 19:45:36 by hhamidi          ###   ########.fr       */
+/*   Updated: 2026/01/27 21:44:40 by hhamidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static void	free_buffers(char **tab)
+#include "parse.h"
+
+void	free_buffers(char **tab)
 {
 	size_t	i;
 
@@ -42,22 +44,51 @@ static int	validate_arguments(int ac, char **av)
 	return (1);
 }
 
-int	parse_checker(int ac, char **av, int *numbers)
+static int	fill_stack(t_stack *stack, int *numbers, int size)
 {
-	char *values;
+	int	i;
+
+	i = size - 1;
+	while (i >= 0)
+	{
+		if (!push(stack, numbers[i]))
+			return (empty_stack(stack));
+		i--;
+	}
+	return (1);
+}
+
+int	empty_stack(t_stack *stack)
+{
+	while (stack->size > 0)
+		pop(stack);
+	return (0);
+}
+
+int	parse_checker(int ac, char **av, int **numbers, t_stack *stack)
+{
+	char **values;
+	int	numbers_size;
 
 	if (ac < 2 || !validate_arguments(ac, av))
 		return (0);
 	values = join_and_split_args(ac, av);
 	if (!values)
 		return (0);
-	if (!validate_input(values))
+	numbers_size = 0;
+	if (!validate_input(values, numbers, &numbers_size))
 	{
 		free_buffers(values);
 		return (0);
 	}
+	if (!fill_stack(stack, *numbers, numbers_size))
+	{
+		free_buffers(values);
+		free(*numbers);
+		return (0);
+	}
 	free_buffers(values);
-	free(numbers);
+	free(*numbers);
 	return (1);
 }
 
